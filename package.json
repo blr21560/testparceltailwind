@@ -14,7 +14,8 @@
     "scripts": {
         "start": "npm-run-all --parallel watch:*",
         "prod": "npm-run-all --parallel run:*",
-        "build": "parcel build src/index.html",
+        "prebuild": "tailwindcss -i ./src/style.css -o ./src/assets/tailwind/tailwind.css -w",
+        "build": "parcel build ./src/index.html",
 
         "watch:start": "parcel serve src/*.html",
         "watch:css": "tailwindcss -i src/style.css -o src/assets/tailwind/tailwind.css -w --no-content-hash --no-source-maps",
